@@ -1,15 +1,10 @@
-import Header from './components/Header';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
-
-function App() {
+function WelcomeMessage() {
     return (
         <div>
-            <Header />
-            <MainContent />
-            <Footer />
+            <h1>Welcome to ALX React APP!</h1>
+            <p>This is a simple JSX component.</p>
         </div>
     );
 }
 
-export default App;
+export default WelcomeMessage;
