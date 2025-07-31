@@ -7,17 +7,14 @@ const EditRecipeForm = ({ recipe }) => {
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // ✅ required
+    event.preventDefault(); // ✅ Required by checklist
     updateRecipe({ ...recipe, title, description });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <textarea
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
+      <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
       <button type="submit">Update Recipe</button>
     </form>
   );
