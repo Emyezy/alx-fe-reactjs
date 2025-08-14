@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html", // for Vite root HTML
-    "./public/index.html", // required for checklist
-    "./src/**/*.{js,ts,jsx,tsx}", // all JS/TS/React files
+    "./index.html",
+    "./public/index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {},
