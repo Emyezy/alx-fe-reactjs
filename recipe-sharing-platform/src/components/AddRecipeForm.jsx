@@ -6,8 +6,8 @@ export default function AddRecipeForm() {
   const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // ✅ Added a validate function
+  const validate = () => {
     let validationErrors = {};
 
     if (!title.trim()) {
@@ -19,7 +19,8 @@ export default function AddRecipeForm() {
     } else {
       const items = ingredients.split(",").map((i) => i.trim());
       if (items.length < 2) {
-        validationErrors.ingredients = "Please enter at least two ingredients.";
+        validationErrors.ingredients =
+          "Please enter at least two ingredients.";
       }
     }
 
@@ -27,6 +28,13 @@ export default function AddRecipeForm() {
       validationErrors.steps = "Preparation steps are required.";
     }
 
+    return validationErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const validationErrors = validate(); // ✅ Using validate()
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
