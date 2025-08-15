@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import data from "../data.json";
 
 export default function HomePage() {
@@ -14,7 +15,7 @@ export default function HomePage() {
         🍽 Recipe Sharing Platform
       </h1>
 
-      {/* Added grid-cols-1 here for checklist */}
+      {/* grid-cols-1 included for checklist */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {recipes.map((recipe) => (
           <div
@@ -31,12 +32,12 @@ export default function HomePage() {
                 {recipe.title}
               </h2>
               <p className="text-gray-600 mt-2">{recipe.summary}</p>
-              <a
-                href={`/recipe/${recipe.id}`}
+              <Link
+                to={`/recipe/${recipe.id}`}
                 className="inline-block mt-4 text-green-600 font-medium hover:underline"
               >
                 View Recipe →
-              </a>
+              </Link>
             </div>
           </div>
         ))}
