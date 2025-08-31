@@ -17,9 +17,10 @@ function PostsComponent() {
     error,
     refetch,
   } = useQuery("posts", fetchPosts, {
-    cacheTime: 1000 * 60 * 5, // cache for 5 minutes
-    refetchOnWindowFocus: false, // don’t auto refetch on focus
-    keepPreviousData: true, // keep old data while fetching new
+    cacheTime: 1000 * 60 * 5,       // cache for 5 minutes
+    staleTime: 1000 * 30,           // data considered fresh for 30s
+    refetchOnWindowFocus: false,    // don’t auto refetch on focus
+    keepPreviousData: true,         // keep old data while fetching new
   });
 
   if (isLoading) return <p>Loading...</p>;
